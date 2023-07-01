@@ -4,6 +4,7 @@
 int main (void){
      int año, mes, dia, a, y, m, d, menu;
      
+printf("Bienvenidos queridos trabajadores, el siguiente programa es para que conozcan de manera automatica las fechas de las reuniones, las cuales seran el primer lunes de cada trimestre.\n La primera opcion les solicita ingresar el año del cual quieren conocer las reuniones.\n La segunda opcion puede ser seleccionada cuando ya no tengan ninguna consulta.\n");
 do {
     
     printf("1. Calcular las fechas de las reuniones trimestrales de todo el año\n");
@@ -22,7 +23,7 @@ do {
                 m = mes + 12 * a - 2;
                 d = (dia + y + y/4 - y/100 + y/400 + (31*m)/12) % 7;
                 if(d == 1) { 
-                    printf("La reunión es el %02d/%02d/%d\n", dia, mes, año);
+                    printf("La reunion es el: 0%d/%0d/%d\n", dia, mes, año);
                     break;
                 }
             }
@@ -30,7 +31,7 @@ do {
         }while (mes <= 10);
         break;
     case 2:
-        printf("Saliendo\n");
+        printf("Saliendo, esperamos haberte ayudado\n");
         break;
     default:
         printf("La opcion ingresada no es correcta\n");
