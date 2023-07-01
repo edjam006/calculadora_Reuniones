@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (void){
+     int año, mes, dia, a, y, m, d, menu;
+     
+do {
+    
+    printf("1. Calcular las fechas de las reuniones trimestrales de todo el año\n");
+    printf("2. Salir\n");
+    scanf("%d", &menu);
+    switch (menu)
+    {
+    case 1:
+        mes= 1;
+        printf("Ingrese el año\n");
+        scanf("%d", &año);
+        do {
+            for(dia = 1; dia <= 7; dia++) { 
+                a = (14 - mes) / 12;
+                y = año - a;
+                m = mes + 12 * a - 2;
+                d = (dia + y + y/4 - y/100 + y/400 + (31*m)/12) % 7;
+                if(d == 1) { 
+                    printf("La reunión es el %02d/%02d/%d\n", dia, mes, año);
+                    break;
+                }
+            }
+                mes += 3;
+        }while (mes <= 10);
+        break;
+    case 2:
+        printf("Saliendo\n");
+        break;
+    default:
+        printf("La opcion ingresada no es correcta\n");
+        break;
+    }
+    
+} while (menu != 2);
+    return 0;
+}
+
+
+
+
+
