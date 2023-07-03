@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main (void){
-     int año, mes, dia, a, y, m, d, menu;
+     int anio, mes, dia, a, y, m, d, menu;
      
 printf("Bienvenidos queridos trabajadores, el siguiente programa es para que conozcan de manera automatica las fechas de las reuniones, las cuales seran el primer lunes de cada trimestre.\n La primera opcion les solicita ingresar el año del cual quieren conocer las reuniones.\n La segunda opcion puede ser seleccionada cuando ya no tengan ninguna consulta.\n");
 do {
@@ -14,16 +14,21 @@ do {
     {
     case 1:
         mes= 1;
+        do {
         printf("Ingrese el año\n");
-        scanf("%d", &año);
+        scanf("%d", &anio);
+        if (anio <= 0){
+            printf ("El año ingresado no es correcto\n");
+        }
+        } while (anio <= 0);
         do {
             for(dia = 1; dia <= 7; dia++) { 
                 a = (14 - mes) / 12;
-                y = año - a;
+                y = anio - a;
                 m = mes + 12 * a - 2;
                 d = (dia + y + y/4 - y/100 + y/400 + (31*m)/12) % 7;
                 if(d == 1) { 
-                    printf("La reunion es el: 0%d/%0d/%d\n", dia, mes, año);
+                    printf("La reunion es el: 0%d/%0d/%d\n", dia, mes, anio);
                     break;
                 }
             }
